@@ -1,6 +1,5 @@
-<nav>
-  <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>خانه</a>  |
-  <a href="{{ '/logbook/' | relative_url }}" {% if page.url contains '/logbook/' %}class="active"{% endif %}>گزارش صعود</a>  |
-  <a href="{{ '/news/' | relative_url }}" {% if page.url contains '/news/' %}class="active"{% endif %}>خبر کوهنوردی</a>  |
-  <a href="{{ '/articles/' | relative_url }}" {% if page.url contains '/articles/' %}class="active"{% endif %}>مقالات</a>
+<nav class="site-nav" aria-label="ناوبری اصلی">
+  <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>خانه</a>
+  <a href="{{ '/courses/' | relative_url }}" {% if page.url contains '/courses/' %}class="active"{% endif %}>دوره‌ها</a>
+  <a href="{{ '/news/' | relative_url }}" {% if page.url contains '/news/' %}class="active"{% endif %}>اخبار</a>
 </nav>

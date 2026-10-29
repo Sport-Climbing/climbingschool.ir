@@ -1,6 +1,6 @@
-# LLM-oriented overview (inference / citation): https://logbook.rocks/llms.txt
-# JSON catalog for agents: https://logbook.rocks/webmcp-catalog.json
-# Atom feeds: /feed.xml · /logbook/feed.xml · /news/feed.xml · /articles/feed.xml
+# LLM-oriented overview (inference / citation): https://climbingschool.ir/llms.txt
+# JSON catalog for agents: https://climbingschool.ir/webmcp-catalog.json
+# Atom feeds: /feed.xml · /courses/feed.xml · /news/feed.xml
 #
 # Search and live AI answers (RAG / grounding / citation): allowed.
 # Foundation-model training: not granted.
@@ -61,4 +61,4 @@ Disallow: /
 User-agent: meta-externalagent
 Disallow: /
 
-Sitemap: https://logbook.rocks/sitemap.xml
+Sitemap: https://climbingschool.ir/sitemap.xml

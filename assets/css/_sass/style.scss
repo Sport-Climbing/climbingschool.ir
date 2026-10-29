@@ -21,7 +21,7 @@ body {
 }
 
 h1,h2,h3,h4,h5,h6 {
-  font-family: "Lato", "Helvetica Neue", Helvetica, sans-serif;
+  font-family: $base-font-family;
   font-weight: bold;
   line-height: 1.8;
   margin: 0;
@@ -100,17 +100,17 @@ code {
 }
 
 blockquote {
-  border-left: 2px solid $brand-color;
-  padding-left: 1em;
-  font-family: Georgia,Times,Times New Roman,serif;
+  border-inline-start: 2px solid $brand-color;
+  padding-inline-start: 1em;
+  font-family: inherit;
   font-size: 0.9*$base-font-size;
-  font-style: italic;
+  font-style: normal;
 }
 
 
 .headline, .post-headline {
-  font-size: 2em;
-  margin-bottom: -0.4em;
+  font-size: 1.7em;
+  margin-bottom: 0.35em;
 
   @include media-query($on-palm) {
     font-size: 2em;

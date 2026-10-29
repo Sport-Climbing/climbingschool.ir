@@ -1,3 +1,13 @@
+# این ریپو سایت climbingschool.ir است
+
+فورک logbook.rocks که به **مدرسه سنگ‌نوردی** تبدیل شده است. پست‌های موروثی (`_logbook`، `_articles`، اخبار و عکس‌هایشان) حذف شده‌اند و نباید برگردند. هویت عمومی، منو و صفحهٔ اول باید مدرسه بمانند، نه دفتر گزارش شخصی.
+
+دامنه: https://climbingschool.ir
+
+دستورهای پایین برای مخزن مبدأ نوشته شده‌اند. روی این سایت فقط وقتی اجرا شوند که با هویت مدرسه سازگار باشند.
+
+---
+
 # Agent instructions — logbook.rocks
 
 Jekyll mountaineering site (Cloudflare Pages + GitHub Pages): https://logbook.rocks  

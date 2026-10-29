@@ -23,46 +23,25 @@ layout: compress
     <link rel="describedby" href="{{ '/llms.txt' | absolute_url }}">
     <link rel="alternate" type="application/json" href="{{ '/webmcp-catalog.json' | absolute_url }}" title="WebMCP catalog">
     <link rel="alternate" type="application/atom+xml" href="{{ '/feed.xml' | absolute_url }}" title="{{ site.title }}">
-    {% if page.url contains '/logbook/' %}
-    <link rel="alternate" type="application/atom+xml" href="{{ '/logbook/feed.xml' | absolute_url }}" title="{{ site.author.name }} — گزارش صعود">
-    {% elsif page.url contains '/articles/' %}
-    <link rel="alternate" type="application/atom+xml" href="{{ '/articles/feed.xml' | absolute_url }}" title="{{ site.author.name }} — مقالات">
+    {% if page.url contains '/courses/' %}
+    <link rel="alternate" type="application/atom+xml" href="{{ '/courses/feed.xml' | absolute_url }}" title="{{ site.title }} — دوره‌ها">
     {% elsif page.url contains '/news/' %}
-    <link rel="alternate" type="application/atom+xml" href="{{ '/news/feed.xml' | absolute_url }}" title="{{ site.author.name }} — خبر کوهنوردی">
+    <link rel="alternate" type="application/atom+xml" href="{{ '/news/feed.xml' | absolute_url }}" title="{{ site.title }} — اخبار">
     {% endif %}
     {% include structured-data-logbook.html %}
     {% include favicon.html %}
-
-    {% comment %}
-    Live pages are assembled by Zaraz and pull every asset from jsDelivr, so the
-    image that decides LCP waits on a fresh connection unless we open it here.
-    {% endcomment %}
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="preconnect" href="https://use.fontawesome.com" crossorigin>
-    <script type="text/javascript">
-        (function() {
-            var css = document.createElement('link');
-            css.href = 'https://use.fontawesome.com/releases/v5.11.0/css/all.css';
-            css.rel = 'stylesheet';
-            css.type = 'text/css';
-            document.getElementsByTagName('head')[0].appendChild(css);
-        })();
-    </script>
 </head>
 
 <body{% if page.body_class %} class="{{ page.body_class }}"{% endif %}>
-    <header class="site-header" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px;">
-        <div>
-            <p class="post-headline site-brand" style="margin: 0;">
-                <a href="{{ '/' | relative_url }}" style="color: inherit; text-decoration: none;">{{ site.title }}</a>
-            </p>
-            {% if site.tagline %}
-            <p class="post-description" style="margin: 0;">{{ site.tagline }}</p>
-            {% endif %}
-        </div>
-        <div>
-            {% include navigation.html %}
-        </div>
+    <header class="site-header">
+        <a class="site-brand" href="{{ '/' | relative_url }}">
+            <img class="site-mark" src="{{ '/android-chrome-192x192.png' | relative_url }}" alt="" width="44" height="44">
+            <span class="site-brand-text">
+                <span class="site-name">{{ site.title }}</span>
+                {% if site.tagline %}<span class="site-tagline">{{ site.tagline }}</span>{% endif %}
+            </span>
+        </a>
+        {% include navigation.html %}
     </header>
 
     <main>
@@ -75,7 +54,9 @@ layout: compress
         <p class="copy">
             <small>&copy; {{ site.title }} {{ site.time | date: '%Y' }} | آخرین بروزرسانی: {% include jalali-date.html date=site.time %}</small>
         </p>
+        {% if site.email or site.linkedin or site.github or site.facebook or site.instagram or site.twitter.username %}
         {% include social-footer.html %}
+        {% endif %}
     </footer>
 
     {% include analytics.html %}

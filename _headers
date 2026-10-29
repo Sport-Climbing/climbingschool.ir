@@ -12,11 +12,8 @@
 /feed.xml
   Content-Type: application/atom+xml; charset=utf-8
 
-/logbook/feed.xml
+/courses/feed.xml
   Content-Type: application/atom+xml; charset=utf-8
 
 /news/feed.xml
-  Content-Type: application/atom+xml; charset=utf-8
-
-/articles/feed.xml
   Content-Type: application/atom+xml; charset=utf-8

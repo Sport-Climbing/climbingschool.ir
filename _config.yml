@@ -1,59 +1,34 @@
 ### Site settings
 
-title: گزارش صعود
-tagline: "کاوه‌ رضائی‌شیراز"
+title: مدرسه سنگ‌نوردی
+tagline: "آموزش سنگ‌نوردی"
 description: >-
-  گزارش برنامه‌های صعود کوهنوردی، سنگ‌نوردی و یخ‌نوردی و خبر کوهنوردی
-  کاوه‌ رضائی‌شیراز — منبع فارسی گزارش صعود.
-  Kaveh RezaeiShiraz
-  Mountaineering logbook & world climbing news
+  سایت مدرسه سنگ‌نوردی. دوره‌های آموزشی و اخبار مدرسه از اینجا منتشر می‌شود.
+  climbingschool.ir
 
 lang: fa-IR
 locale: fa_IR
 timezone: Asia/Tehran
 
-# Allow publishing dated logbook/news entries ahead of the climb/event date
+# Allow publishing dated course and news entries ahead of the event date
 future: true
 
 baseurl: ""
-url: "https://logbook.rocks"
-email: me@kavehrs.com
+url: "https://climbingschool.ir"
 
-# Logo used by jekyll-seo-tag (Open Graph / JSON-LD)
-logo: /assets/images/logos/1/kavehrs.jpg
+# Mark used by jekyll-seo-tag (Open Graph / JSON-LD)
+logo: /android-chrome-512x512.png
 
 author:
-  name: کاوه‌ رضائی‌شیراز
-  twitter: kavehrs
-  url: https://www.kavehrs.com/
-
-# Social profiles for jekyll-seo-tag JSON-LD
-social:
-  name: Kaveh RezaeiShiraz
-  links:
-    - https://www.linkedin.com/in/kavehrs
-    - https://github.com/kavehrs
-    - https://twitter.com/kavehrs
-    - https://www.facebook.com/imkavehrs
-    - https://www.instagram.com/imkavehrs
-    - https://www.kavehrs.com
+  name: مدرسه سنگ‌نوردی
+  url: https://climbingschool.ir/
 
 # Twitter card settings for jekyll-seo-tag
 twitter:
-  username: kavehrs
   card: summary_large_image
-
-# Social media usernames used in footer links
-facebook: "imkavehrs"
-instagram: "imkavehrs"
-linkedin: "kavehrs"
-github: "kavehrs"
 
 highlighter: rouge
 markdown: kramdown
-
-# Tracker (Google Analytics 4 web stream for logbook.rocks)
-analytics: G-6LWYK8X41J
 
 #optimization -> compress.html
 compress_html:
@@ -67,38 +42,30 @@ compress_html:
   startings: []
 
 collections:
-  logbook:
+  courses:
     output: true
-    permalink: /logbook/:path/
+    permalink: /courses/:path/
   news:
     output: true
     permalink: /news/:path/
-  articles:
-    output: true
-    permalink: /articles/:path/
 
 defaults:
   - scope:
       path: ""
     values:
-      image: /assets/images/logos/1/kavehrs.jpg
+      image: /android-chrome-512x512.png
   - scope:
       path: "assets"
     values:
       sitemap: false
   - scope:
       path: ""
-      type: logbook
+      type: courses
     values:
       layout: post
   - scope:
       path: ""
       type: news
-    values:
-      layout: post
-  - scope:
-      path: ""
-      type: articles
     values:
       layout: post
 

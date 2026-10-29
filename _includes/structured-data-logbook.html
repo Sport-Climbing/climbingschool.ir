@@ -1,4 +1,4 @@
-{% assign default_img = site.logo | default: '/assets/images/logos/1/kavehrs.jpg' %}
+{% assign default_img = site.logo | default: '/android-chrome-512x512.png' %}
 {% if page.image.path %}
   {% assign page_img = page.image.path %}
 {% else %}
@@ -30,37 +30,26 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "AboutPage",
-  "name": {{ page.title | jsonify }},
+  "@type": "WebSite",
+  "name": {{ site.title | jsonify }},
   "url": "{{ site.url }}{{ site.baseurl }}/",
   "inLanguage": "fa-IR",
-  "description": {{ page.description | strip_newlines | jsonify }},
-  "isPartOf": {
-    "@type": "WebSite",
-    "name": {{ site.title | jsonify }},
-    "url": "{{ site.url }}{{ site.baseurl }}/",
-    "inLanguage": "fa-IR",
-    "description": {{ site.description | strip_newlines | jsonify }}
-  },
-  "about": {
-    "@type": "Person",
+  "description": {{ site.description | strip_newlines | jsonify }},
+  "publisher": {
+    "@type": "EducationalOrganization",
     "name": {{ site.author.name | jsonify }},
-    "url": "{{ site.author.url }}",
-    "sameAs": [{% for link in site.social.links %}{{ link | jsonify }}{% unless forloop.last %}, {% endunless %}{% endfor %}]
+    "url": "{{ site.author.url }}"
   }
 }
 </script>
 {% endif %}
 
-{% if page.collection == 'logbook' or page.collection == 'news' or page.collection == 'articles' %}
-{% if page.collection == 'logbook' %}
-  {% assign crumb_name = 'گزارش صعود' %}
-  {% assign crumb_url = '/logbook/' | absolute_url %}
-{% elsif page.collection == 'articles' %}
-  {% assign crumb_name = 'مقالات' %}
-  {% assign crumb_url = '/articles/' | absolute_url %}
+{% if page.collection == 'courses' or page.collection == 'news' %}
+{% if page.collection == 'courses' %}
+  {% assign crumb_name = 'دوره‌ها' %}
+  {% assign crumb_url = '/courses/' | absolute_url %}
 {% else %}
-  {% assign crumb_name = 'خبر کوهنوردی' %}
+  {% assign crumb_name = 'اخبار' %}
   {% assign crumb_url = '/news/' | absolute_url %}
 {% endif %}
 <script type="application/ld+json">
@@ -141,11 +130,12 @@
 </script>
 {% endif %}
 
-{% if page.collection == 'articles' %}
+{% if page.collection == 'courses' %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Course",
+  "name": {{ page.title | jsonify }},
   "headline": {{ page.title | jsonify }},
   "description": {{ page.description | default: page.excerpt | strip_html | truncate: 300 | jsonify }},
   "inLanguage": {{ page.lang | default: site.lang | jsonify }},
@@ -156,12 +146,12 @@
     "@id": "{{ page.url | absolute_url }}"
   },
   "author": {
-    "@type": "Person",
+    "@type": "EducationalOrganization",
     "name": {{ site.author.name | jsonify }},
     "url": "{{ site.author.url }}"
   },
   "publisher": {
-    "@type": "Person",
+    "@type": "EducationalOrganization",
     "name": {{ site.author.name | jsonify }},
     "url": "{{ site.author.url }}"
   }{% if page.source_url %},
@@ -187,12 +177,12 @@
     "@id": "{{ page.url | absolute_url }}"
   },
   "author": {
-    "@type": "Person",
+    "@type": "EducationalOrganization",
     "name": {{ site.author.name | jsonify }},
     "url": "{{ site.author.url }}"
   },
   "publisher": {
-    "@type": "Person",
+    "@type": "EducationalOrganization",
     "name": {{ site.author.name | jsonify }},
     "url": "{{ site.author.url }}"
   }{% if article_image %},
@@ -202,7 +192,7 @@
 </script>
 {% endif %}
 
-{% if page.url == '/logbook/' %}
+{% if page.url == '/courses/' %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -217,21 +207,15 @@
     "url": "{{ site.url }}{{ site.baseurl }}/"
   },
   "about": [
-    {"@type": "Thing", "name": "گزارش برنامه صعود کوهنوردی"},
-    {"@type": "Thing", "name": "صعود زمستانه"},
-    {"@type": "Thing", "name": "کوهنوردی فنی"},
-    {"@type": "Thing", "name": "کوهنوردی مرتفع"},
-    {"@type": "Thing", "name": "سنگ‌نوردی"},
-    {"@type": "Thing", "name": "دیواره‌نوردی"},
-    {"@type": "Thing", "name": "یخ‌نوردی"},
-    {"@type": "Thing", "name": "برفچال"},
-    {"@type": "Thing", "name": "کمپ آموزشی کوهنوردی"}
+    {"@type": "Thing", "name": "آموزش سنگ‌نوردی"},
+    {"@type": "Thing", "name": "دوره سنگ‌نوردی"}
   ],
   "mainEntity": {
     "@type": "ItemList",
-    "numberOfItems": {{ site.logbook.size }},
+    "numberOfItems": {{ site.courses.size }},
     "itemListElement": [
-      {% for post in site.logbook reversed %}
+      {% assign course_posts = site.courses | sort: "date" | reverse %}
+      {% for post in course_posts %}
       {
         "@type": "ListItem",
         "position": {{ forloop.index }},
@@ -261,8 +245,7 @@
     "url": "{{ site.url }}{{ site.baseurl }}/"
   },
   "about": [
-    {"@type": "Thing", "name": "خبر کوهنوردی"},
-    {"@type": "Thing", "name": "گزارش صعود"}
+    {"@type": "Thing", "name": "اخبار مدرسه سنگ‌نوردی"}
   ],
   "mainEntity": {
     "@type": "ItemList",

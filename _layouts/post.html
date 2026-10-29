@@ -1,13 +1,12 @@
 ---
 layout: default
 ---
-{% if page.collection == 'logbook' or page.collection == 'news' or page.collection == 'articles' %}
-<nav class="crumbs" aria-label="مسیر صفحه" style="margin-bottom: 0.75rem;">
+{% if page.collection == 'courses' or page.collection == 'news' %}
+<nav class="crumbs" aria-label="مسیر صفحه">
   <small>
     <a href="{{ '/' | relative_url }}">خانه</a>
-    · {% if page.collection == 'logbook' %}<a href="{{ '/logbook/' | relative_url }}">گزارش صعود</a>
-    {% elsif page.collection == 'articles' %}<a href="{{ '/articles/' | relative_url }}">مقالات</a>
-    {% else %}<a href="{{ '/news/' | relative_url }}">خبر کوهنوردی</a>{% endif %}
+    · {% if page.collection == 'courses' %}<a href="{{ '/courses/' | relative_url }}">دوره‌ها</a>
+    {% else %}<a href="{{ '/news/' | relative_url }}">اخبار</a>{% endif %}
   </small>
 </nav>
 {% endif %}
@@ -16,10 +15,7 @@ layout: default
 {% if page.date %}
 <p class="meta"><time datetime="{{ page.date | date_to_xmlschema }}"><small>{% include jalali-date.html date=page.date %}</small></time></p>
 {% endif %}
-{% unless page.collection == 'news' or page.collection == 'articles' %}
-<p class="meta"><small>نویسنده: <a href="{{ '/' | relative_url }}">کاوه‌ رضائی‌شیراز</a></small></p>
-{% endunless %}
-{% assign default_img = site.logo | default: '/assets/images/logos/1/kavehrs.jpg' %}
+{% assign default_img = site.logo | default: '/android-chrome-512x512.png' %}
 {% if page.image.path %}
   {% assign cover_src = page.image.path %}
   {% assign cover_alt = page.image.alt | default: page.title %}

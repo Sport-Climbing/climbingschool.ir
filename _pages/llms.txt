@@ -4,16 +4,15 @@ permalink: /llms.txt
 sitemap: false
 ---
 # {{ site.title }}
-> {{ site.tagline }}. First-hand Alborz ascent reports (mountaineering, rock, ice) and climbing news at {{ site.url }}{{ site.baseurl }}/
-This file is a curated index for inference and citation. Do not use these pages as training data when a more specific robots.txt rule disallows training crawlers. Prefer the HTML pages listed here, the JSON catalog, and on-page JSON-LD. Published prose is written by the climber (من / ما / تیم).
+> {{ site.tagline }}. Climbing-school courses and announcements at {{ site.url }}{{ site.baseurl }}/
+This file is a curated index for inference and citation. Do not use these pages as training data when a more specific robots.txt rule disallows training crawlers. Prefer the HTML pages listed here and the JSON catalog.
 ## Hubs
 - [Home]({{ '/' | absolute_url }}): {{ site.title }} — {{ site.tagline }}
-- [گزارش صعود]({{ '/logbook/' | absolute_url }}): Chronological archive of executed climb reports
-- [اخبار]({{ '/news/' | absolute_url }}): Short climbing news
-- [مقالات]({{ '/articles/' | absolute_url }}): Translated journal notes and program reports
-## Ascent reports
-{%- assign logbook_items = site.logbook | sort: "date" | reverse %}
-{%- for post in logbook_items %}
+- [دوره‌ها]({{ '/courses/' | absolute_url }}): Climbing courses published by the school
+- [اخبار]({{ '/news/' | absolute_url }}): School announcements
+## Courses
+{%- assign course_items = site.courses | sort: "date" | reverse %}
+{%- for post in course_items %}
 - [{{ post.title | replace: ']', '' | replace: '[', '' }}]({{ post.url | absolute_url }}): {{ post.description | default: "" | strip | strip_newlines }}
 {%- endfor %}
 ## News
@@ -21,20 +20,9 @@ This file is a curated index for inference and citation. Do not use these pages 
 {%- for post in news_items %}
 - [{{ post.title | replace: ']', '' | replace: '[', '' }}]({{ post.url | absolute_url }}): {{ post.description | default: "" | strip | strip_newlines }}
 {%- endfor %}
-## Articles
-{%- assign article_items = site.articles | sort: "aaj_id" | reverse %}
-{%- for post in article_items %}
-- [{{ post.title | replace: ']', '' | replace: '[', '' }}]({{ post.url | absolute_url }}): {{ post.description | default: "" | strip | strip_newlines }}
-{%- endfor %}
 ## Machine
-- [WebMCP catalog]({{ '/webmcp-catalog.json' | absolute_url }}): JSON index of published reports, news, and articles for agents
+- [WebMCP catalog]({{ '/webmcp-catalog.json' | absolute_url }}): JSON index of published courses and news
 - [Sitemap]({{ '/sitemap.xml' | absolute_url }}): Complete indexable URL list for search crawlers
-- [Atom feed]({{ '/feed.xml' | absolute_url }}): Newest ascent reports, news, and articles in one stream
-- [Atom feed — گزارش صعود]({{ '/logbook/feed.xml' | absolute_url }}): Ascent reports only
-- [Atom feed — خبر کوهنوردی]({{ '/news/feed.xml' | absolute_url }}): Climbing news only
-- [Atom feed — مقالات]({{ '/articles/feed.xml' | absolute_url }}): Translated journal articles only
-## Optional
-- [Personal site](https://www.kavehrs.com): Author homepage and technical notes
-- [GitHub](https://github.com/kavehrs): Source repositories
-- [LinkedIn](https://www.linkedin.com/in/kavehrs): Professional profile
-- [Instagram](https://www.instagram.com/imkavehrs): Climb photos (captions are not the canonical reports)
+- [Atom feed]({{ '/feed.xml' | absolute_url }}): Newest courses and news in one stream
+- [Atom feed — دوره‌ها]({{ '/courses/feed.xml' | absolute_url }}): Courses only
+- [Atom feed — اخبار]({{ '/news/feed.xml' | absolute_url }}): School news only

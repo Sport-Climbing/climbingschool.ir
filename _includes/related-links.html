@@ -5,12 +5,12 @@ Related links:
 - Articles: manual page.related, else shared tags; public UI «مقالات مرتبط :» + flat list.
 Manual page.related still wins when provided.
 {% endcomment %}
-{% if page.collection == 'logbook' %}
-  {% assign related_label = 'گزارش‌های مرتبط' %}
-{% elsif page.collection == 'articles' %}
-  {% assign related_label = 'مقالات مرتبط' %}
+{% if page.collection == 'courses' %}
+  {% assign related_label = 'دوره‌های مرتبط' %}
+{% elsif page.collection == 'news' %}
+  {% assign related_label = 'اخبار مرتبط' %}
 {% else %}
-  {% assign related_label = 'خبرهای مرتبط' %}
+  {% assign related_label = 'مرتبط' %}
 {% endif %}
 {% if page.related and page.related.size > 0 %}
 <nav class="related-posts" aria-label="{{ related_label }}" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #eee;">
@@ -111,9 +111,9 @@ Manual page.related still wins when provided.
   <ul>{{ related_items }}</ul>
 </nav>
   {% endif %}
-{% elsif page.collection == 'articles' and page.tags and page.tags.size > 0 %}
+{% elsif page.collection == 'courses' and page.tags and page.tags.size > 0 %}
   {% assign ranked_entries = '' %}
-  {% for post in site.articles %}
+  {% for post in site.courses %}
     {% if post.url != page.url and post.tags %}
       {% assign overlap = 0 %}
       {% for tag in page.tags %}
@@ -145,8 +145,8 @@ Manual page.related still wins when provided.
     {% endif %}
   {% endfor %}
   {% if related_count > 0 %}
-<nav class="related-posts" aria-label="مقالات مرتبط" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #eee;">
-  <h2 style="font-size: 1.1rem; margin-bottom: 0.75rem;">مقالات مرتبط :</h2>
+<nav class="related-posts" aria-label="دوره‌های مرتبط" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #eee;">
+  <h2 style="font-size: 1.1rem; margin-bottom: 0.75rem;">دوره‌های مرتبط :</h2>
   <ul>{{ related_items }}</ul>
 </nav>
   {% endif %}
